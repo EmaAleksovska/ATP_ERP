@@ -1,0 +1,5 @@
+cd C:\Users\Ema\Desktop\BTRIP\backend
+npm run dev
+Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process -Force
+
+Stop-Process -Id 18020 -Force
