@@ -34,7 +34,7 @@ const SubmitTravelRequest = () => {
     mutationFn: (data) => travelRequestService.submitRequest(data),
     onSuccess: () => {
       queryClient.invalidateQueries(['myRequests'])
-      navigate('/travel-requests/my-requests')
+      navigate('/business-trips/travel-requests/my-requests')
     },
     onError: (err) => {
       setError(err.response?.data?.message || t('travelRequest.errorOccurred'))

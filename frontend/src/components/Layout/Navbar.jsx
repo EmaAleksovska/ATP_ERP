@@ -4,7 +4,7 @@ import { useAuth } from '../../context/AuthContext'
 import LanguageSwitcher from './LanguageSwitcher'
 import './Navbar.css'
 
-const Navbar = ({ onMenuClick }) => {
+const Navbar = ({ onMenuClick, showMenu = true }) => {
   const { user, logout } = useAuth()
   const { t } = useTranslation()
 
@@ -17,14 +17,16 @@ const Navbar = ({ onMenuClick }) => {
     <nav className="navbar">
       <div className="navbar-content">
         <div className="navbar-left">
-          <button className="hamburger-btn" onClick={onMenuClick} aria-label="Toggle menu">
-            <span></span>
-            <span></span>
-            <span></span>
-          </button>
-        <Link to="/dashboard" className="navbar-brand">
+          {showMenu && (
+            <button className="hamburger-btn" onClick={onMenuClick} aria-label="Toggle menu">
+              <span></span>
+              <span></span>
+              <span></span>
+            </button>
+          )}
+          <Link to="/" className="navbar-brand">
             {t('app.name')}
-        </Link>
+          </Link>
         </div>
         <div className="navbar-right">
           <LanguageSwitcher />

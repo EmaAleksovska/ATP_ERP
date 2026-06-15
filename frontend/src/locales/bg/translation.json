@@ -1,6 +1,6 @@
 {
   "app": {
-    "name": "Портал Командировки",
+    "name": "Атомтоплопроект",
     "companyName": "АТП-Атомтоплопроект ООД"
   },
   "common": {
@@ -72,6 +72,17 @@
     "pendingForMyApproval": "В очакване на моето одобрение",
     "requestsRequiringApproval": "Заявки, изискващи вашето одобрение",
     "myPendingRequestsSection": "Моите заявки в очакване"
+  },
+  "portal": {
+    "welcome": "Добре дошли",
+    "selectModule": "Изберете модул, за да започнете",
+    "businessTrips": "Командировки",
+    "businessTripsDesc": "Управление на заявки, одобрения и командировъчни",
+    "correspondence": "Кореспонденция",
+    "correspondenceDesc": "Входяща и изходяща кореспонденция",
+    "vacations": "Отпуски",
+    "vacationsDesc": "Заявки и одобрения за отпуск",
+    "comingSoon": "Очаквайте скоро"
   },
   "travelRequest": {
     "submitRequest": "Подай заявка за командировка",

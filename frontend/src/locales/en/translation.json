@@ -1,6 +1,6 @@
 {
   "app": {
-    "name": "Business Trip Portal",
+    "name": "Atomtoploproekt",
     "companyName": "ATP-Atomtoploproekt LTD"
   },
   "common": {
@@ -72,6 +72,17 @@
     "pendingForMyApproval": "Pending for My Approval",
     "requestsRequiringApproval": "Requests Requiring Your Approval",
     "myPendingRequestsSection": "My Pending Requests"
+  },
+  "portal": {
+    "welcome": "Welcome",
+    "selectModule": "Select a module to get started",
+    "businessTrips": "Business Trips",
+    "businessTripsDesc": "Manage travel requests, approvals, and travel orders",
+    "correspondence": "Correspondence",
+    "correspondenceDesc": "Incoming and outgoing correspondence",
+    "vacations": "Vacations",
+    "vacationsDesc": "Vacation inquiries and approvals",
+    "comingSoon": "Coming soon"
   },
   "travelRequest": {
     "submitRequest": "Submit Travel Request",
