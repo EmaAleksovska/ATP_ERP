@@ -78,6 +78,7 @@ const ProjectManagement = () => {
               <th>{t('projectManagement.projectId')}</th>
               <th>{t('projectManagement.projectName')}</th>
               <th>{t('projectManagement.description')}</th>
+              <th>{t('projectManagement.clientCode')}</th>
               <th>{t('projectManagement.responsibleUser')}</th>
               <th>{t('common.actions')}</th>
             </tr>
@@ -85,7 +86,7 @@ const ProjectManagement = () => {
           <tbody>
             {projects?.projects?.length === 0 ? (
               <tr>
-                <td colSpan="5" style={{ textAlign: 'center' }}>{t('projectManagement.noProjects')}</td>
+                <td colSpan="6" style={{ textAlign: 'center' }}>{t('projectManagement.noProjects')}</td>
               </tr>
             ) : (
               projects?.projects?.map((project) => (
@@ -93,6 +94,7 @@ const ProjectManagement = () => {
                   <td>{project.project_id}</td>
                   <td>{project.name}</td>
                   <td>{project.description || '-'}</td>
+                  <td>{project.client_code || '-'}</td>
                   <td>
                     {project.responsible_first_name && project.responsible_last_name
                       ? `${project.responsible_first_name} ${project.responsible_last_name}`

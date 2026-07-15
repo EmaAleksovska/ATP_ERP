@@ -1,0 +1,43 @@
+.correspondence-hub {
+
+  max-width: 720px;
+
+  margin: 0 auto;
+
+}
+
+
+
+.correspondence-side-toggle {
+
+  display: flex;
+
+  justify-content: center;
+
+  margin-bottom: 1.5rem;
+
+}
+
+
+
+.correspondence-side-toggle .language-switcher {
+
+  margin-right: 0;
+
+}
+
+
+
+.correspondence-mode-buttons {
+
+  display: flex;
+
+  flex-wrap: wrap;
+
+  gap: 0.75rem;
+
+  justify-content: center;
+
+}
+
+

@@ -1,0 +1,245 @@
+.correspondence-hub {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+.correspondence-toggle,
+.correspondence-mode-buttons {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin: 1.5rem 0;
+}
+
+.correspondence-mode-page {
+  padding: 1rem 0;
+}
+
+.correspondence-toolbar {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  margin-bottom: 1rem;
+}
+
+.correspondence-form-actions {
+  display: flex;
+  flex-direction: row;
+  gap: 0.5rem;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.correspondence-form-actions .btn-compact {
+  width: 7.5rem;
+  padding: 0.4rem 0.85rem;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.correspondence-readonly {
+  background: #e9ecef !important;
+  color: #495057;
+}
+
+.correspondence-filters {
+  margin-bottom: 1rem;
+}
+
+.correspondence-filters-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 0.75rem;
+  align-items: flex-end;
+}
+
+.correspondence-filters-row .filter-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  min-width: 0;
+}
+
+.correspondence-filters-row .filter-field label {
+  font-size: 0.75rem;
+  color: #666;
+  white-space: nowrap;
+}
+
+.correspondence-filters-row input,
+.correspondence-filters-row select {
+  padding: 0.35rem 0.5rem;
+  font-size: 0.875rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.correspondence-filters-row .filter-field--project input {
+  width: 5.5rem;
+}
+
+.correspondence-filters-row .filter-field--number input {
+  width: 5rem;
+}
+
+.correspondence-filters-row .filter-field--client input {
+  width: 8rem;
+}
+
+.correspondence-filters-row .filter-field--sender input {
+  width: 7rem;
+}
+
+.correspondence-filters-row .filter-field--date input {
+  width: 9.5rem;
+}
+
+.correspondence-filters-row .filter-field select {
+  width: 7rem;
+}
+
+.correspondence-filters-row .filter-field--atp input {
+  width: 4rem;
+}
+
+.correspondence-filters-row .filter-field--total-number input {
+  width: 5rem;
+}
+
+.correspondence-filters-row .filter-field--description input {
+  width: 10rem;
+}
+
+.correspondence-filters-row .filter-field--sender-select .correspondence-compact-select {
+  width: 11rem;
+  padding: 0.35rem 0.5rem;
+  font-size: 0.875rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.correspondence-filters-row .filter-field--pdf input[type='file'] {
+  font-size: 0.8rem;
+  max-width: 12rem;
+  padding: 0.2rem 0;
+  border: none;
+}
+
+.correspondence-filters-row input.correspondence-readonly {
+  background: #e9ecef;
+  color: #495057;
+}
+
+.filter-project-input {
+  display: flex;
+  gap: 0.25rem;
+  align-items: center;
+}
+
+.btn-compact {
+  padding: 0.35rem 0.6rem;
+  font-size: 0.8rem;
+  min-width: 5.5rem;
+}
+
+.correspondence-empty-message {
+  color: #666;
+  padding: 1.5rem 0;
+  font-style: italic;
+}
+
+.correspondence-fetching-hint {
+  color: #868e96;
+  font-size: 0.8rem;
+  margin-top: 0.5rem;
+  font-style: italic;
+}
+
+.correspondence-editing-hint {
+  color: #5f6368;
+  font-size: 0.85rem;
+  margin: 0.25rem 0 0.75rem;
+  font-style: italic;
+}
+
+
+.correspondence-clickable-row {
+  cursor: pointer;
+}
+
+.correspondence-clickable-row:hover {
+  background: #f1f3f5;
+}
+
+.correspondence-selected-row {
+  background: #e7ebff !important;
+}
+
+.correspondence-selected-row:hover {
+  background: #dce2ff !important;
+}
+
+.correspondence-inline-edit {
+  margin-bottom: 1.5rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid #eee;
+}
+
+.correspondence-picker-row {
+  cursor: pointer;
+}
+
+.correspondence-picker-row:hover {
+  background: #f1f3f5;
+}
+
+.correspondence-confirm-dialog {
+  max-width: 480px;
+}
+
+.correspondence-table-wrap {
+  overflow-x: auto;
+}
+
+.correspondence-pdf-actions {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.correspondence-pdf-btn {
+  padding: 0.25rem 0.5rem;
+  font-size: 0.85rem;
+}
+
+.correspondence-pdf-missing {
+  color: #868e96;
+}
+
+.correspondence-pdf-print-label {
+  display: none;
+}
+
+@media print {
+  .correspondence-pdf-print-label {
+    display: inline;
+  }
+}
+
+@media print {
+  .no-print,
+  .correspondence-filters,
+  .correspondence-toolbar,
+  .navbar,
+  .sidebar,
+  .footer {
+    display: none !important;
+  }
+
+  .correspondence-mode-page {
+    padding: 0;
+  }
+}

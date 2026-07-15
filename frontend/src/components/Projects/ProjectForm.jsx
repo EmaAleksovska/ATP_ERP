@@ -9,6 +9,7 @@ const ProjectForm = ({ project, users, onClose }) => {
   const [formData, setFormData] = useState({
     name: '',
     description: '',
+    clientCode: '',
     projectId: '',
     responsibleUserId: '',
   })
@@ -20,6 +21,7 @@ const ProjectForm = ({ project, users, onClose }) => {
       setFormData({
         name: project.name || '',
         description: project.description || '',
+        clientCode: project.client_code || '',
         projectId: project.project_id || '',
         responsibleUserId: project.responsible_user_id || '',
       })
@@ -99,6 +101,15 @@ const ProjectForm = ({ project, users, onClose }) => {
               value={formData.description}
               onChange={(e) => setFormData({ ...formData, description: e.target.value })}
               rows={4}
+            />
+          </div>
+
+          <div className="form-group">
+            <label>{t('projectManagement.clientCode')}</label>
+            <input
+              type="text"
+              value={formData.clientCode}
+              onChange={(e) => setFormData({ ...formData, clientCode: e.target.value })}
             />
           </div>
 

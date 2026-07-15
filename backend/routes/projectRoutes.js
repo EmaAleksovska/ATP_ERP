@@ -31,6 +31,7 @@ router.post(
     body('name').notEmpty().trim(),
     body('projectId').notEmpty().trim(),
     body('description').optional().trim(),
+    body('clientCode').optional().trim(),
     body('responsibleUserId').optional().isUUID(),
   ],
   createProject
@@ -44,6 +45,7 @@ router.put(
     body('name').optional().notEmpty().trim(),
     body('projectId').optional().notEmpty().trim(),
     body('description').optional().trim(),
+    body('clientCode').optional().trim(),
     body('responsibleUserId').optional().isUUID(),
   ],
   updateProject

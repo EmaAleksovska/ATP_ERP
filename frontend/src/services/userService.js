@@ -1,6 +1,11 @@
 import api from './api'
 
 export const userService = {
+  getSenderUserOptions: async () => {
+    const response = await api.get('/users/sender-options')
+    return response.data
+  },
+
   getAllUsers: async () => {
     const response = await api.get('/users')
     return response.data

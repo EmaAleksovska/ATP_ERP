@@ -1,6 +1,25 @@
 import bcrypt from 'bcryptjs';
 import pool from '../config/database.js';
 
+// Get active users for correspondence sender selection (any authenticated user)
+export const getSenderUserOptions = async (req, res, next) => {
+  try {
+    const result = await pool.query(
+      `SELECT id, first_name, last_name, email
+       FROM users
+       WHERE status = 'active'
+       ORDER BY first_name, last_name`
+    );
+
+    res.json({
+      success: true,
+      users: result.rows,
+    });
+  } catch (error) {
+    next(error);
+  }
+};
+
 // Get all users (admin only)
 export const getAllUsers = async (req, res, next) => {
   try {

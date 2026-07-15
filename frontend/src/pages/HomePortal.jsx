@@ -19,7 +19,8 @@ const HomePortal = () => {
       id: 'correspondence',
       title: t('portal.correspondence'),
       description: t('portal.correspondenceDesc'),
-      enabled: false,
+      to: '/correspondence/output/review',
+      enabled: true,
     },
     {
       id: 'vacations',

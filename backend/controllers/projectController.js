@@ -9,6 +9,7 @@ export const getAllProjects = async (req, res, next) => {
         p.id, 
         p.name, 
         p.description, 
+        p.client_code,
         p.project_id, 
         p.responsible_user_id,
         p.created_at,
@@ -40,6 +41,7 @@ export const getProjectById = async (req, res, next) => {
         p.id, 
         p.name, 
         p.description, 
+        p.client_code,
         p.project_id, 
         p.responsible_user_id,
         p.created_at,
@@ -69,7 +71,7 @@ export const getProjectById = async (req, res, next) => {
 // Create project (admin only)
 export const createProject = async (req, res, next) => {
   try {
-    const { name, description, projectId, responsibleUserId } = req.body;
+    const { name, description, clientCode, projectId, responsibleUserId } = req.body;
 
     if (!name || !projectId) {
       return res.status(400).json({ message: 'Name and Project ID are required' });
@@ -97,10 +99,10 @@ export const createProject = async (req, res, next) => {
 
     const projectUuid = randomUUID();
     const result = await pool.query(
-      `INSERT INTO projects (id, name, description, project_id, responsible_user_id) 
-       VALUES ($1, $2, $3, $4, $5) 
-       RETURNING id, name, description, project_id, responsible_user_id, created_at`,
-      [projectUuid, name, description || null, projectId, responsibleUserId || null]
+      `INSERT INTO projects (id, name, description, client_code, project_id, responsible_user_id) 
+       VALUES ($1, $2, $3, $4, $5, $6) 
+       RETURNING id, name, description, client_code, project_id, responsible_user_id, created_at`,
+      [projectUuid, name, description || null, clientCode || null, projectId, responsibleUserId || null]
     );
 
     const newProject = result.rows[0];
@@ -130,7 +132,7 @@ export const createProject = async (req, res, next) => {
 export const updateProject = async (req, res, next) => {
   try {
     const { id } = req.params;
-    const { name, description, projectId, responsibleUserId } = req.body;
+    const { name, description, clientCode, projectId, responsibleUserId } = req.body;
 
     // Check if project exists
     const projectCheck = await pool.query('SELECT id, project_id FROM projects WHERE id = $1', [
@@ -177,6 +179,10 @@ export const updateProject = async (req, res, next) => {
       updates.push(`description = $${paramCount++}`);
       values.push(description);
     }
+    if (clientCode !== undefined) {
+      updates.push(`client_code = $${paramCount++}`);
+      values.push(clientCode || null);
+    }
     if (projectId) {
       updates.push(`project_id = $${paramCount++}`);
       values.push(projectId);
@@ -192,7 +198,7 @@ export const updateProject = async (req, res, next) => {
     }
 
     values.push(id);
-    const query = `UPDATE projects SET ${updates.join(', ')} WHERE id = $${paramCount} RETURNING id, name, description, project_id, responsible_user_id, updated_at`;
+    const query = `UPDATE projects SET ${updates.join(', ')} WHERE id = $${paramCount} RETURNING id, name, description, client_code, project_id, responsible_user_id, updated_at`;
 
     const result = await pool.query(query, values);
 

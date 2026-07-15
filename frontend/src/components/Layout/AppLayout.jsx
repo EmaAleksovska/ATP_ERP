@@ -4,6 +4,7 @@ import Navbar from './Navbar'
 import Sidebar from './Sidebar'
 import Footer from './Footer'
 import './AppLayout.css'
+import '../../styles/convexButtons.css'
 
 const AppLayout = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false)

@@ -10,21 +10,18 @@
   padding: 1rem 0;
 }
 
-.nav-link {
+.sidebar-exit-btn {
   display: block;
-  padding: 0.75rem 1.5rem;
-  color: #333;
-  text-decoration: none;
-  transition: background-color 0.2s;
+  margin: 0 1rem 0.75rem;
+  padding: 0.6rem 1rem;
+  font-size: 0.875rem;
 }
 
-.nav-link:hover {
-  background-color: #f5f5f5;
-}
-
-.nav-link.active {
-  background-color: #667eea;
-  color: white;
+.sidebar-nav-btn {
+  display: block;
+  margin: 0.35rem 1rem;
+  padding: 0.6rem 1rem;
+  font-size: 0.875rem;
 }
 
 .nav-section {

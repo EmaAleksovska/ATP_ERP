@@ -1,0 +1,173 @@
+.convex-btn,
+.correspondence-convex-btn {
+  display: inline-block;
+  text-align: center;
+  text-decoration: none;
+  font-weight: 600;
+  color: #333;
+  cursor: pointer;
+  border-radius: 10px;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.65),
+    0 2px 5px rgba(0, 0, 0, 0.12);
+  background: linear-gradient(180deg, #f7f8fb 0%, #e4e7ef 100%);
+  transition: transform 0.06s ease, box-shadow 0.2s ease, filter 0.2s ease;
+}
+
+.convex-btn:hover,
+.correspondence-convex-btn:hover {
+  filter: brightness(1.02);
+}
+
+.convex-btn:active,
+.correspondence-convex-btn:active {
+  transform: translateY(1px);
+  box-shadow:
+    inset 0 1px 2px rgba(0, 0, 0, 0.15),
+    0 1px 2px rgba(0, 0, 0, 0.12);
+}
+
+.convex-btn.active,
+.correspondence-convex-btn.active {
+  background: linear-gradient(180deg, #7f9bff 0%, #5f7ef5 100%);
+  color: white;
+}
+
+.app-layout .btn-primary,
+.app-layout .btn-submit,
+.app-layout .btn-download,
+.app-layout .btn-edit {
+  border-radius: 10px;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.65),
+    0 2px 5px rgba(0, 0, 0, 0.12);
+  background: linear-gradient(180deg, #7f9bff 0%, #5f7ef5 100%);
+  color: white;
+  transition: transform 0.06s ease, box-shadow 0.2s ease, filter 0.2s ease;
+}
+
+.app-layout .btn-cancel {
+  border-radius: 10px;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.65),
+    0 2px 5px rgba(0, 0, 0, 0.12);
+  background: linear-gradient(180deg, #f7f8fb 0%, #e4e7ef 100%);
+  color: #333;
+  transition: transform 0.06s ease, box-shadow 0.2s ease, filter 0.2s ease;
+}
+
+.app-layout .btn-approve {
+  border-radius: 10px;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.65),
+    0 2px 5px rgba(0, 0, 0, 0.12);
+  background: linear-gradient(180deg, #34d399 0%, #10b981 100%);
+  color: white;
+  transition: transform 0.06s ease, box-shadow 0.2s ease, filter 0.2s ease;
+}
+
+.app-layout .btn-reject,
+.app-layout .btn-delete {
+  border-radius: 10px;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.65),
+    0 2px 5px rgba(0, 0, 0, 0.12);
+  background: linear-gradient(180deg, #f87171 0%, #ef4444 100%);
+  color: white;
+  transition: transform 0.06s ease, box-shadow 0.2s ease, filter 0.2s ease;
+}
+
+.app-layout .btn-status {
+  border-radius: 10px;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.65),
+    0 2px 5px rgba(0, 0, 0, 0.12);
+  background: linear-gradient(180deg, #fbbf24 0%, #f59e0b 100%);
+  color: white;
+  transition: transform 0.06s ease, box-shadow 0.2s ease, filter 0.2s ease;
+}
+
+.app-layout .btn-logout {
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.35),
+    0 2px 5px rgba(0, 0, 0, 0.15);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.28) 0%, rgba(255, 255, 255, 0.12) 100%);
+  transition: transform 0.06s ease, box-shadow 0.2s ease, filter 0.2s ease;
+}
+
+.app-layout .btn-primary:hover,
+.app-layout .btn-submit:hover:not(:disabled),
+.app-layout .btn-download:hover,
+.app-layout .btn-edit:hover,
+.app-layout .btn-cancel:hover,
+.app-layout .btn-approve:hover:not(:disabled),
+.app-layout .btn-reject:hover:not(:disabled),
+.app-layout .btn-delete:hover,
+.app-layout .btn-status:hover,
+.app-layout .btn-logout:hover {
+  filter: brightness(1.04);
+}
+
+.app-layout .btn-primary:active,
+.app-layout .btn-submit:active:not(:disabled),
+.app-layout .btn-download:active,
+.app-layout .btn-edit:active,
+.app-layout .btn-cancel:active,
+.app-layout .btn-approve:active:not(:disabled),
+.app-layout .btn-reject:active:not(:disabled),
+.app-layout .btn-delete:active,
+.app-layout .btn-status:active,
+.app-layout .btn-logout:active {
+  transform: translateY(1px);
+  box-shadow:
+    inset 0 1px 2px rgba(0, 0, 0, 0.15),
+    0 1px 2px rgba(0, 0, 0, 0.12);
+}
+
+.app-layout .btn-submit:disabled,
+.app-layout .btn-approve:disabled,
+.app-layout .btn-reject:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.correspondence-mode-page .btn-primary,
+.correspondence-mode-page .btn-secondary {
+  border-radius: 10px;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.65),
+    0 2px 5px rgba(0, 0, 0, 0.12);
+  transition: transform 0.06s ease, box-shadow 0.2s ease, filter 0.2s ease;
+}
+
+.correspondence-mode-page .btn-primary {
+  background: linear-gradient(180deg, #7f9bff 0%, #5f7ef5 100%);
+  color: white;
+}
+
+.correspondence-mode-page .btn-secondary {
+  background: linear-gradient(180deg, #f7f8fb 0%, #e4e7ef 100%);
+  color: #333;
+}
+
+.correspondence-mode-page .btn-primary:hover,
+.correspondence-mode-page .btn-secondary:hover {
+  filter: brightness(1.02);
+}
+
+.correspondence-mode-page .btn-primary:active,
+.correspondence-mode-page .btn-secondary:active {
+  transform: translateY(1px);
+  box-shadow:
+    inset 0 1px 2px rgba(0, 0, 0, 0.15),
+    0 1px 2px rgba(0, 0, 0, 0.12);
+}

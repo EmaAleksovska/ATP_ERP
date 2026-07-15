@@ -14,6 +14,9 @@ import MyTravelOrders from './pages/TravelOrder/MyTravelOrders'
 import Profile from './pages/Profile'
 import AppLayout from './components/Layout/AppLayout'
 import PortalLayout from './components/Layout/PortalLayout'
+import CorrespondenceLayout from './components/Layout/CorrespondenceLayout'
+import CorrespondenceNewPage from './pages/Correspondence/CorrespondenceNewPage'
+import CorrespondenceReviewPage from './pages/Correspondence/CorrespondenceReviewPage'
 import ProtectedRoute from './components/Auth/ProtectedRoute'
 
 function App() {
@@ -64,6 +67,23 @@ function App() {
         <Route path="travel-requests/my-projects" element={<RequestsForMyProjects />} />
 
         <Route path="travel-orders" element={<MyTravelOrders />} />
+      </Route>
+
+      <Route
+        path="/correspondence"
+        element={
+          <ProtectedRoute>
+            <CorrespondenceLayout />
+          </ProtectedRoute>
+        }
+      >
+        <Route index element={<Navigate to="output/review" replace />} />
+        <Route path="output/new" element={<CorrespondenceNewPage side="output" />} />
+        <Route path="output/review" element={<CorrespondenceReviewPage side="output" />} />
+        <Route path="output/edit" element={<Navigate to="../review" replace />} />
+        <Route path="input/new" element={<CorrespondenceNewPage side="input" />} />
+        <Route path="input/review" element={<CorrespondenceReviewPage side="input" />} />
+        <Route path="input/edit" element={<Navigate to="../review" replace />} />
       </Route>
     </Routes>
   )

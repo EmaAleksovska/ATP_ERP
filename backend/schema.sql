@@ -18,6 +18,7 @@ CREATE TABLE IF NOT EXISTS projects (
     id TEXT PRIMARY KEY,
     name TEXT NOT NULL,
     description TEXT,
+    client_code TEXT,
     project_id TEXT UNIQUE NOT NULL,
     responsible_user_id TEXT REFERENCES users(id) ON DELETE SET NULL,
     created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
@@ -79,6 +80,23 @@ CREATE TABLE IF NOT EXISTS order_number_tracking (
     updated_at DATETIME DEFAULT CURRENT_TIMESTAMP
 );
 
+-- Unified correspondence (incoming and outgoing)
+CREATE TABLE IF NOT EXISTS input_output_correspondence (
+    id TEXT PRIMARY KEY,
+    project_id TEXT NOT NULL REFERENCES projects(id) ON DELETE RESTRICT,
+    type TEXT NOT NULL CHECK (LENGTH(type) = 1),
+    number INTEGER NOT NULL,
+    total_number INTEGER,
+    client TEXT NOT NULL,
+    description TEXT,
+    sender TEXT REFERENCES users(id) ON DELETE RESTRICT,
+    correspondence_date TEXT NOT NULL,
+    pdf_path TEXT,
+    case_in_out TEXT NOT NULL,
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+    updated_at DATETIME DEFAULT CURRENT_TIMESTAMP
+);
+
 -- Indexes for better performance
 CREATE INDEX IF NOT EXISTS idx_users_email ON users(email);
 CREATE INDEX IF NOT EXISTS idx_users_role ON users(role);
@@ -92,6 +110,9 @@ CREATE INDEX IF NOT EXISTS idx_password_reset_tokens_user ON password_reset_toke
 CREATE INDEX IF NOT EXISTS idx_password_reset_tokens_token ON password_reset_tokens(token);
 CREATE INDEX IF NOT EXISTS idx_audit_log_user ON audit_log(user_id);
 CREATE INDEX IF NOT EXISTS idx_audit_log_entity ON audit_log(entity_type, entity_id);
+CREATE INDEX IF NOT EXISTS idx_input_output_correspondence_case ON input_output_correspondence(case_in_out);
+CREATE INDEX IF NOT EXISTS idx_input_output_correspondence_project ON input_output_correspondence(project_id);
+CREATE INDEX IF NOT EXISTS idx_input_output_correspondence_sender ON input_output_correspondence(sender);
 
 -- Trigger to update updated_at timestamp (SQLite version)
 CREATE TRIGGER IF NOT EXISTS update_users_updated_at 
@@ -116,4 +137,12 @@ CREATE TRIGGER IF NOT EXISTS update_travel_requests_updated_at
     WHEN NEW.updated_at = OLD.updated_at
 BEGIN
     UPDATE travel_requests SET updated_at = CURRENT_TIMESTAMP WHERE id = NEW.id;
+END;
+
+CREATE TRIGGER IF NOT EXISTS update_input_output_correspondence_updated_at 
+    AFTER UPDATE ON input_output_correspondence
+    FOR EACH ROW
+    WHEN NEW.updated_at = OLD.updated_at
+BEGIN
+    UPDATE input_output_correspondence SET updated_at = CURRENT_TIMESTAMP WHERE id = NEW.id;
 END;

@@ -1,0 +1,32 @@
+.correspondence-side-toggle {
+  display: flex;
+  gap: 0.5rem;
+  margin: 1rem;
+}
+
+.correspondence-toggle-btn {
+  flex: 1;
+  padding: 0.5rem 0.75rem;
+  font-size: 0.8rem;
+}
+
+.correspondence-mode-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin: 1.25rem 1rem 0;
+  padding-top: 1rem;
+  border-top: 1px solid #eee;
+}
+
+.correspondence-mode-btn {
+  padding: 0.6rem 1rem;
+  font-size: 0.875rem;
+}
+
+.correspondence-sidebar-exit {
+  display: block;
+  margin: 0 1rem 0.75rem;
+  padding: 0.6rem 1rem;
+  font-size: 0.875rem;
+}

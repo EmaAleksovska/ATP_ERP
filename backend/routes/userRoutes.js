@@ -2,6 +2,7 @@ import express from 'express';
 import { body } from 'express-validator';
 import {
   getAllUsers,
+  getSenderUserOptions,
   getUserById,
   createUser,
   updateUser,
@@ -17,6 +18,9 @@ const router = express.Router();
 // All routes require authentication
 router.use(authenticate);
 router.use(generalLimiter);
+
+// Sender options for correspondence (any authenticated user)
+router.get('/sender-options', getSenderUserOptions);
 
 // Get all users (admin only)
 router.get('/', requireAdmin, getAllUsers);

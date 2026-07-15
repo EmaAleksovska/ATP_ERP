@@ -12,6 +12,10 @@ import userRoutes from './routes/userRoutes.js';
 import projectRoutes from './routes/projectRoutes.js';
 import travelRequestRoutes from './routes/travelRequestRoutes.js';
 import travelOrderRoutes from './routes/travelOrderRoutes.js';
+import inputCorrespondenceRoutes from './routes/inputCorrespondenceRoutes.js';
+import outputCorrespondenceRoutes from './routes/outputCorrespondenceRoutes.js';
+import { ensureCorrespondenceTables } from './utils/ensureCorrespondenceTables.js';
+import { ensureProjectsSchema } from './utils/ensureProjectsSchema.js';
 
 // Import error handler
 import { errorHandler } from './middleware/errorHandler.js';
@@ -50,7 +54,7 @@ app.use(cors({
   },
   credentials: true
 }));
-app.use(express.json());
+app.use(express.json({ limit: '25mb' }));
 app.use(express.urlencoded({ extended: true }));
 app.use(morgan('dev'));
 
@@ -63,6 +67,8 @@ app.use('/api/users', userRoutes);
 app.use('/api/projects', projectRoutes);
 app.use('/api/travel-requests', travelRequestRoutes);
 app.use('/api/travel-orders', travelOrderRoutes);
+app.use('/api/input-correspondence', inputCorrespondenceRoutes);
+app.use('/api/output-correspondence', outputCorrespondenceRoutes);
 
 // Health check
 app.get('/api/health', (req, res) => {
@@ -78,7 +84,15 @@ app.use((req, res) => {
 });
 
 const HOST = process.env.HOST || '0.0.0.0';
-app.listen(PORT, HOST, () => {
-  console.log(`Server is running on http://${HOST}:${PORT}`);
-});
+
+Promise.all([ensureCorrespondenceTables(), ensureProjectsSchema()])
+  .then(() => {
+    app.listen(PORT, HOST, () => {
+      console.log(`Server is running on http://${HOST}:${PORT}`);
+    });
+  })
+  .catch((error) => {
+    console.error('Failed to initialize database schema:', error);
+    process.exit(1);
+  });
 

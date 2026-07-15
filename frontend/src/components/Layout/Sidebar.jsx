@@ -3,6 +3,9 @@ import { useTranslation } from 'react-i18next'
 import { useAuth } from '../../context/AuthContext'
 import './Sidebar.css'
 
+const convexClass = ({ isActive }) =>
+  `sidebar-nav-btn convex-btn${isActive ? ' active' : ''}`
+
 const Sidebar = ({ isOpen, onClose }) => {
   const { isAdmin } = useAuth()
   const { t } = useTranslation()
@@ -12,38 +15,74 @@ const Sidebar = ({ isOpen, onClose }) => {
       <div className={`sidebar-overlay ${isOpen ? 'active' : ''}`} onClick={onClose}></div>
       <aside className={`sidebar ${isOpen ? 'open' : ''}`}>
         <nav className="sidebar-nav">
-          <NavLink to="/business-trips/dashboard" className="nav-link" onClick={onClose}>
+          <NavLink to="/" className="sidebar-exit-btn convex-btn" onClick={onClose}>
+            {t('nav.backToPortal')}
+          </NavLink>
+
+          <NavLink
+            to="/business-trips/dashboard"
+            className={convexClass}
+            onClick={onClose}
+          >
             {t('nav.dashboard')}
           </NavLink>
-          <NavLink to="/business-trips/profile" className="nav-link" onClick={onClose}>
+          <NavLink
+            to="/business-trips/profile"
+            className={convexClass}
+            onClick={onClose}
+          >
             {t('nav.profile')}
           </NavLink>
-          
+
           {isAdmin && (
             <>
               <div className="nav-section">{t('nav.admin')}</div>
-              <NavLink to="/business-trips/admin/users" className="nav-link" onClick={onClose}>
+              <NavLink
+                to="/business-trips/admin/users"
+                className={convexClass}
+                onClick={onClose}
+              >
                 {t('nav.userManagement')}
               </NavLink>
-              <NavLink to="/business-trips/admin/projects" className="nav-link" onClick={onClose}>
+              <NavLink
+                to="/business-trips/admin/projects"
+                className={convexClass}
+                onClick={onClose}
+              >
                 {t('nav.projectManagement')}
               </NavLink>
             </>
           )}
-          
+
           <div className="nav-section">{t('nav.travelRequests')}</div>
-          <NavLink to="/business-trips/travel-requests/submit" className="nav-link" onClick={onClose}>
+          <NavLink
+            to="/business-trips/travel-requests/submit"
+            className={convexClass}
+            onClick={onClose}
+          >
             {t('nav.submitRequest')}
           </NavLink>
-          <NavLink to="/business-trips/travel-requests/my-requests" className="nav-link" onClick={onClose}>
+          <NavLink
+            to="/business-trips/travel-requests/my-requests"
+            className={convexClass}
+            onClick={onClose}
+          >
             {t('nav.myRequests')}
           </NavLink>
-          <NavLink to="/business-trips/travel-requests/my-projects" className="nav-link" onClick={onClose}>
+          <NavLink
+            to="/business-trips/travel-requests/my-projects"
+            className={convexClass}
+            onClick={onClose}
+          >
             {t('nav.requestsForMyProjects')}
           </NavLink>
-          
+
           <div className="nav-section">{t('nav.travelOrders')}</div>
-          <NavLink to="/business-trips/travel-orders" className="nav-link" onClick={onClose}>
+          <NavLink
+            to="/business-trips/travel-orders"
+            className={convexClass}
+            onClick={onClose}
+          >
             {t('nav.myTravelOrders')}
           </NavLink>
         </nav>
